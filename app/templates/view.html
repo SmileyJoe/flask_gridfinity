@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{{model.title}}</title>
+    
+        <link rel="stylesheet" href="/static/css/retro.css">
+        <link rel="stylesheet" href="/static/css/view.css">
+        <script src="/static/js/stl_viewer/stl_viewer.min.js"></script>        
+        <script src="/static/js/view.js"></script>        
+    </head>
+    <body>
+        <h1>{{model.title}}</h1>
+        Author: <a href="{{model.author.url}}">{{model.author.name}}</a><br/>
+        Url: <a href="{{model.link.url}}">{{model.link.name}}</a>
+        <p>
+            {{details|safe}}
+        </p>
+        <div class="dropdown-container">
+            <a class="dropdown-action">Models</a>
+            <div class="dropdown-content">
+                <ul>
+                    {% for file in model.models %}
+                        <li><a href="javascript:load('{{file.path}}', '{{file.name}}')">{{ file.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <a class="download" download>Download</a>
+        <div id="stl-container"></div>
+    </body>
+</html>

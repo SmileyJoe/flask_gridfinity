@@ -1,0 +1,42 @@
+id: details_schema
+$schema: http://json-schema.org/draft-04/schema#
+description: Schema for yaml file for the meta to models
+type: object
+required:
+  - version
+  - title
+  - link
+  - author
+properties:
+  version:
+    description: The version number for the data, updating any models, or any details, requires a version bump
+    type: Integer
+  title:
+    description: Title for the models in the directory
+    type: String
+  link:
+    type: object
+    description: Url to the models
+    required:
+      - name
+      - url
+    properties:
+      name:
+        type: String
+        description: The name of the website
+      link:
+        type: Url
+        description: The url to the models
+  author:
+    type: object
+    description: Details on the author
+    required:
+      - name
+      - url
+    properties:
+      name:
+        type: String
+        description: Authors name
+      link:
+        type: Url
+        description: Url to the authors profile

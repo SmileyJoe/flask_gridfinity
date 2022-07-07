@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Home page</title>
+    
+        <link rel="stylesheet" href="/static/css/retro.css">
+    </head>
+    <body>
+        <ul>
+            {% for model in models %}
+                 <li><a href="/view?model={{model.slug}}">{{model.title}}</a></li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
