@@ -1,0 +1,21 @@
+.models{
+    list-style-type: none;
+    padding-left: 10px;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+}
+
+.container .left {
+    flex: 30%;
+}
+
+.container .right {
+    flex: 70%;
+}
+
+.tags {
+    padding-left: 10px;
+}

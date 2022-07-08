@@ -3,22 +3,30 @@
     <head>
         <title>Home page</title>
     
-        <link rel="stylesheet" href="/static/css/retro.css">   
+        <link rel="stylesheet" href="/static/css/reset.css"> 
+        <link rel="stylesheet" href="/static/css/retro.css"> 
+        <link rel="stylesheet" href="/static/css/index.css">   
         <script src="/static/js/index.js"></script>   
     </head>
     <body>
-        <h3>Tags</h3>
-        <ul>
-            {% for tag in tags %}
-                <input type="checkbox" id="{{tag}}" value="{{tag}}" onclick="tag_clicked('{{tag}}', '{{tags_current}}')" {{"checked" if tag in tags_current}}>
-                <label for="{{tag}}">{{tag.replace("_"," ").title()}}</label><br>
-            {% endfor %}
-        </ul>
-        <h3>Models</h3>
-        <ul>
-            {% for model in models %}
-                 <li><a href="/view?model={{model.slug}}">{{model.title}}</a></li>
-            {% endfor %}
-        </ul>
+        <div class="container">
+            <div class="left">
+                <h3>Tags</h3>
+                <ul class="tags">
+                    {% for tag in tags %}
+                        <input type="checkbox" id="{{tag}}" value="{{tag}}" onclick="tag_clicked('{{tag}}', '{{tags_current}}')" {{"checked" if tag in tags_current}}>
+                        <label for="{{tag}}">{{tag.replace("_"," ").title()}}</label><br>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="right">
+                <h3>Models</h3>
+                <ul class="models">
+                    {% for model in models %}
+                        <li><a href="/view?model={{model.slug}}">{{model.title}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
     </body>
 </html>

@@ -3,6 +3,7 @@
     <head>
         <title>{{model.title}}</title>
     
+        <link rel="stylesheet" href="/static/css/reset.css"> 
         <link rel="stylesheet" href="/static/css/retro.css">
         <link rel="stylesheet" href="/static/css/view.css">
         <script src="/static/js/stl_viewer/stl_viewer.min.js"></script>        
@@ -11,7 +12,11 @@
     <body>
         <h1>{{model.title}}</h1>
         Author: <a href="{{model.author.url}}">{{model.author.name}}</a><br/>
-        Url: <a href="{{model.link.url}}">{{model.link.name}}</a>
+        Url: <a href="{{model.link.url}}">{{model.link.name}}</a><br/>
+        Tags: 
+        {% for tag in model.tags %}
+            <a href="/?tags={{tag}}">{{tag.replace("_"," ").title()}}</a>
+        {% endfor %}
         <p>
             {{details|safe}}
         </p>

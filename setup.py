@@ -42,7 +42,7 @@ for meta_path in Path(DIR_MODELS).rglob(FILE_META):
         meta['path'] = str(meta_path.parent)
         # read in all the stl files in the directory
         models=[]
-        for model in meta_path.parent.glob('*.stl'):
+        for model in sorted(meta_path.parent.glob('*.stl')):
             # add the details to the list
             models.append({
                 # the path minus "app"

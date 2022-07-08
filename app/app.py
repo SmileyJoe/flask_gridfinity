@@ -25,7 +25,7 @@ def index():
     else:
         models = db.models().all()
 
-    return render_template("index.html", models=models, tags=db.tags().all()[0]['tags'], tags_current=tags)
+    return render_template("index.html", models=sorted(models, key=lambda model:model["title"]), tags=sorted(db.tags().all()[0]['tags']), tags_current=tags)
 
 @app.route('/view')
 def view():
