@@ -3,6 +3,7 @@ from pathlib import Path
 
 DIR_DB = 'app/db'
 MODELS = DIR_DB + '/models.json'
+TAGS = DIR_DB + '/tags.json'
 
 @staticmethod
 def setup():
@@ -12,3 +13,7 @@ def setup():
 @staticmethod
 def models():
     return TinyDB(MODELS)
+
+@staticmethod
+def tags():
+    return TinyDB(TAGS)

@@ -5,6 +5,7 @@ type: object
 required:
   - version
   - title
+  - tags
   - link
   - author
 properties:
@@ -14,6 +15,13 @@ properties:
   title:
     description: Title for the models in the directory
     type: String
+  tags:
+    description: Tags for the model
+    type: array
+    items: 
+      type: string
+    minItems: 1
+    uniqueItems: true
   link:
     type: object
     description: Url to the models

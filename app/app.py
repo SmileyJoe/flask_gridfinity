@@ -8,7 +8,24 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template("index.html", models=db.models().all())
+    tags = request.args.get('tags')
+    Model = Query()
+    tags_list = None
+    models = None
+
+    if not tags:
+        # id there are not tags, we want an empty string and not None
+        tags = ""
+    else:
+        # if there are tags, split them into a list
+        tags_list = tags.split(',')
+
+    if tags_list:
+        models = db.models().search(Model.tags.all(tags_list))
+    else:
+        models = db.models().all()
+
+    return render_template("index.html", models=models, tags=db.tags().all()[0]['tags'], tags_current=tags)
 
 @app.route('/view')
 def view():
