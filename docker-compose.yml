@@ -6,3 +6,4 @@ services:
             - "8083:5000"
         volumes:
             - ./app:/app
+            - ./files:/app/static/files

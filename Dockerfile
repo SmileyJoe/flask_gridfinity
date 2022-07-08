@@ -5,6 +5,7 @@ COPY setup.py .
 RUN pip install -r requirements.txt
 
 COPY ./app /app
+COPY ./files /app/static/files
 
 EXPOSE 5000 
 
